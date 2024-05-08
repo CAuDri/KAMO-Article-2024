@@ -1,0 +1,61 @@
+%\PassOptionsToPackage{draft}{graphicx}
+
+\documentclass
+[
+		secfontsize=32pt,
+		secnumdepth=0,
+		tocdepth=1,
+		paperwidth=216mm,%210mm,
+		paperheight=303mm,%297mm
+		innermargin=23mm,%20mm,
+		outermargin=43mm,%40mm,
+		topmargin=12mm%12mm
+]{kamo}
+
+
+\usepackage{mdframed}
+\usepackage[natbib,style=authoryear,minnames=6,maxnames=6]{biblatex}
+
+\addbibresource{content/bottleneck/bottleneck.bib}
+\addbibresource{content/caudri/caudri.bib}
+
+
+\usepackage
+[
+    NormalFont={{SofiaSans-Light.otf}},
+    BoldFont={{SofiaSans-Bold.otf}},
+    MediumFont={{SofiaSans-Regular.otf}},
+    ItalicFont={{SofiaSans-LightItalic.otf}},
+    BoldItalicFont={{SofiaSans-BoldItalic.otf}},
+    SerifNormalFont={{SofiaSans-Bold.otf}},
+    SerifBoldFont={{SofiaSans-Bold.otf}},
+    SerifItalicFont={{SofiaSans-Bold.otf}},
+    SerifBoldItalicFont={{SofiaSans-Bold.otf}},
+	UseSerif={{none}}  %math-text
+]{kamofonts}
+
+
+
+
+
+\input{includes/packages}
+\input{includes/setup}
+
+
+\begin{document}
+
+
+
+\pagestyle{scrheadings}
+
+\begin{refsection}
+\input{content/bottleneck/bottleneck}
+\end{refsection}
+
+\begin{refsection}
+\input{content/caudri/caudri}
+\end{refsection}
+
+\input{content/lastpage}
+
+\end{document}

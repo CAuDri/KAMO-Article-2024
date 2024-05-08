@@ -1,0 +1,78 @@
+
+
+\setlength{\columnsep}{0.5cm}
+
+\KOMAoption{fontsize}{9pt}
+\setstretch{1.2}
+\renewcommand{\arraystretch}{1.1}
+
+\setlength{\emergencystretch}{5pt}
+
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\interfootnotelinepenalty=10000
+
+\newcommand{\noop}[1]{}
+\newcommand{\bibmovetofront}{\noop{AAAAA}}
+
+
+\newcommand\subs[1]{_{\text{#1}}}
+
+\usepackage[normalem]{ulem}
+\usepackage{xcolor}
+\newcommand\corr[2]{\textcolor{red}{\sout{#1}#2}\marginpar{\textcolor{red}{$\big|$}}}
+\newcommand\corrX[2]{\textcolor{red}{\sout{#1}#2}}
+\newcommand\remk[1]{\textcolor{green!50!black}{$\triangledown$}\marginpar{\tiny\setstretch{1.0}\raggedright\textcolor{green!50!black}{ #1}}}
+
+
+
+
+\DeclareFieldFormat{title}{\mkbibemph{#1}}
+\DeclareFieldFormat
+  [article,inbook,incollection,inproceedings,patent,thesis,unpublished]
+  {title}{\mkbibquote{#1\isdot}}
+\DeclareFieldFormat
+  [suppbook,suppcollection,suppperiodical]
+  {title}{#1}
+
+
+
+
+%\newcommand{\nnode}[1]{node {\parbox{2cm}{\centering #1}} }
+\newcommand{\nnode}[1]{\parbox{4cm}{\white\centering #1}}
+
+	
+\date{}		
+
+\counterwithin*{equation}{section}
+\counterwithin*{footnote}{section}
+\counterwithin*{figure}{section}
+
+
+\usepackage{cleveref}
+\crefname{table}{Tab.}{Tab.}
+\Crefname{table}{Tabelle}{Tabellen}
+
+\crefname{figure}{Abb.}{Abb.}
+\Crefname{figure}{Abbildung}{Abbildungen}
+
+
+\crefname{equation}{Gl.}{Gl.}
+\Crefname{equation}{Gleichung}{Gleichungen}
+
+
+
+
+\colorlet{colorSectionNumber}{colorPRBlue}
+\makeatletter
+\renewcommand{\thesection}{\@arabic\c@section}
+\makeatother
+
+
+\newcommand\invisiblepart[1]{%
+  \refstepcounter{part}%
+  \addcontentsline{toc}{part}{#1}%
+  \partmark{#1}}
+
+\defbibheading{subbibliography}{\subsection*{Literaturverweise}}

@@ -1,0 +1,211 @@
+% KAMO Corporate Design Approximation for XeLaTeX (2023)
+% Version: 2024-01-15
+% 
+% (c) Fraunhofer 2023
+%
+% Issues / questions / feedback: Jens Ziehn (jens.ziehn@iosb.fraunhofer.de), Fraunhofer IOSB
+%
+% This package extents the document class kamo.cls.
+%
+% Fonts must be set separately from the document class, due
+% to problems in LaTeX2e parsing parameters with spaces,
+% which would be required to conveniently pass
+% font names as parameters.
+%
+% Therefore, fonts are set in the kamofonts.sty package. 
+%
+%
+% How to use the package:
+%
+% 1) Install the font Sofia Sans
+%
+% 2) Be sure to select XeLaTeX as a compiler (as opposed to the usual PDFLaTeX)
+%
+% 3) Use \documentclass{kamo}
+%
+% 4) Put \usepackage{kamofonts} in the preamble of your LaTeX project (ideally directly after documentclass)
+%
+% That should be it.
+%
+% 5) Fonts can be varied in the following way:
+%
+% \usepackage
+% [NormalFont={{Fira Sans Light}},
+% BoldFont={{Fira Sans Bold}},
+% ItalicFont={{Fira Sans Italic}},
+% BoldItalicFont={{Fira Sans Italic}}
+% ]
+% {kamofonts}
+
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{kamofonts}[2024/01/15]
+
+\RequirePackage{xkeyval}
+\RequirePackage{etoolbox}
+
+\makeatletter
+\def\kamofonts@NormalFont{}
+\def\kamofonts@MediumFont{}
+\def\kamofonts@BoldFont{}
+\def\kamofonts@ItalicFont{}
+\def\kamofonts@BoldItalicFont{}
+
+\def\kamofonts@MonoNormalFont{}
+\def\kamofonts@MonoBoldFont{}
+\def\kamofonts@MonoItalicFont{}
+\def\kamofonts@MonoBoldItalicFont{}
+
+\def\kamofonts@SerifNormalFont{}
+\def\kamofonts@SerifBoldFont{}
+\def\kamofonts@SerifItalicFont{}
+\def\kamofonts@SerifBoldItalicFont{}
+
+\def\kamofonts@UseSerif{}
+
+\define@key{kamofonts.sty}{NormalFont}[Sofia Sans Light]{\def\kamofonts@NormalFont{#1}}
+\define@key{kamofonts.sty}{MediumFont}[Sofia Sans]{\def\kamofonts@MediumFont{#1}}
+\define@key{kamofonts.sty}{BoldFont}[Sofia Sans Bold]{\def\kamofonts@BoldFont{#1}}
+\define@key{kamofonts.sty}{ItalicFont}[Sofia Sans Light Italic]{\def\kamofonts@ItalicFont{#1}}
+\define@key{kamofonts.sty}{BoldItalicFont}[Sofia Sans Bold Italic]{\def\kamofonts@BoldItalicFont{#1}}
+
+\define@key{kamofonts.sty}{MonoNormalFont}[UbuntuMono-Regular]{\def\kamofonts@MonoNormalFont{#1}}
+\define@key{kamofonts.sty}{MonoBoldFont}[UbuntuMono-Bold]{\def\kamofonts@MonoBoldFont{#1}}
+\define@key{kamofonts.sty}{MonoItalicFont}[UbuntuMono-Italic]{\def\kamofonts@MonoItalicFont{#1}}
+\define@key{kamofonts.sty}{MonoBoldItalicFont}[UbuntuMono-BoldItalic]{\def\kamofonts@MonoBoldItalicFont{#1}}
+
+\define@key{kamofonts.sty}{SerifNormalFont}[NotoSerif-Regular]{\def\kamofonts@SerifNormalFont{#1}}
+\define@key{kamofonts.sty}{SerifBoldFont}[NotoSerif-Bold]{\def\kamofonts@SerifBoldFont{#1}}
+\define@key{kamofonts.sty}{SerifItalicFont}[NotoSerif-Italic]{\def\kamofonts@SerifItalicFont{#1}}
+\define@key{kamofonts.sty}{SerifBoldItalicFont}[NotoSerif-BoldItalic]{\def\kamofonts@SerifBoldItalicFont{#1}}
+
+\define@key{kamofonts.sty}{UseSerif}[none]{\def\kamofonts@UseSerif{#1}}
+
+
+\makeatother
+
+\ExecuteOptionsX<kamofonts.sty>{NormalFont,MediumFont,BoldFont,ItalicFont,BoldItalicFont,MonoNormalFont,MonoBoldFont,MonoItalicFont,MonoBoldItalicFont,SerifNormalFont,SerifBoldFont,SerifItalicFont,SerifBoldItalicFont,UseSerif}
+\ProcessOptionsX
+
+
+
+\RequirePackage {amsmath}
+\RequirePackage {amssymb}
+\RequirePackage {mathtools}
+
+
+\RequirePackage {mathspec}
+
+\makeatletter
+%\ifx\kamofonts@UseSerif\undefined
+%undefed
+%\else
+  %\if\mycmd1
+  %defed, 1
+  %\else
+  %defed
+  %\fi
+%\fi
+
+
+
+\makeatother
+%\RequirePackage {MnSymbol}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Fonts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\defaultfontfeatures{Ligatures=TeX,Mapping=tex-text}
+
+\makeatletter
+
+	\setallmonofonts[
+		BoldFont={\kamofonts@MonoBoldFont}, 
+		ItalicFont={\kamofonts@MonoItalicFont},
+		BoldItalicFont={\kamofonts@MonoBoldItalicFont},
+		Scale=MatchUppercase
+	]{\kamofonts@MonoNormalFont}
+
+
+	\setallsansfonts[
+		BoldFont={\kamofonts@BoldFont}, 
+		ItalicFont={\kamofonts@ItalicFont},
+		BoldItalicFont={\kamofonts@BoldItalicFont},
+		Scale=MatchUppercase
+	]{\kamofonts@NormalFont}
+
+
+\ifdefstring{\kamofonts@UseSerif}{none}
+{
+	% \kamofonts@UseSerif == none
+	\setmainfont[
+		BoldFont={\kamofonts@BoldFont}, 
+		ItalicFont={\kamofonts@ItalicFont},
+		BoldItalicFont={\kamofonts@BoldItalicFont},
+		Scale=MatchUppercase
+	]{\kamofonts@SerifNormalFont}
+	
+	\renewcommand*\familydefault{\sfdefault}
+	
+	
+	\setmathfont(Digits,Latin,Greek)[Scale=MatchUppercase]{\kamofonts@NormalFont}
+	\setmathfont(Greek)[Scale=MatchUppercase]{\kamofonts@SerifNormalFont}
+	\setmathrm[Scale=MatchUppercase]{\kamofonts@NormalFont}
+}
+{ %else...
+
+	\ifdefstring{\kamofonts@UseSerif}{math}
+	{
+		% \kamofonts@UseSerif == math
+		\setmainfont[
+			BoldFont={\kamofonts@SerifBoldFont}, 
+			ItalicFont={\kamofonts@SerifItalicFont},
+			BoldItalicFont={\kamofonts@SerifBoldItalicFont},
+			Scale=MatchUppercase
+		]{\kamofonts@SerifNormalFont}
+		
+		\renewcommand*\familydefault{\sfdefault}
+		
+		\setmathfont(Digits,Latin,Greek)[Scale=MatchUppercase]{\kamofonts@SerifNormalFont}
+		\setmathrm[Scale=MatchUppercase]{\kamofonts@SerifNormalFont}
+	}
+	{ %else...
+		% \kamofonts@UseSerif == math-text
+		\setmainfont[
+			BoldFont={\kamofonts@SerifBoldFont}, 
+			ItalicFont={\kamofonts@SerifItalicFont},
+			BoldItalicFont={\kamofonts@SerifBoldItalicFont},
+			Scale=MatchUppercase
+		]{\kamofonts@SerifNormalFont}
+		
+		\setmathfont(Digits,Latin,Greek)[Scale=MatchUppercase]{\kamofonts@SerifNormalFont}
+		\setmathrm[Scale=MatchUppercase]{\kamofonts@SerifNormalFont}
+	}
+
+}
+
+\newfontfamily{\captionfamily}{SofiaSansCondensed-Light.otf}[Scale=MatchUppercase]
+\newfontfamily{\narrowfamily}{SofiaSansCondensed-Regular.otf}[Scale=MatchUppercase]
+\newfontfamily{\mediumfamily}{\kamofonts@MediumFont}[Scale=MatchUppercase]
+
+
+
+
+	%\renewcommand*\familydefault{\sfdefault}
+
+
+	%\setmathfont(Digits,Latin){\kamofonts@NormalFont}
+	
+\makeatother
+
+
+
+
+
+\endinput
+%% End of package

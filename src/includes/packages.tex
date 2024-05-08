@@ -1,0 +1,64 @@
+\usepackage{csquotes}
+\setquotestyle[guillemets]{german}
+\usepackage[ngerman]{babel}
+\addto\captionsngerman{\renewcommand{\figurename}{Abb.}}
+
+
+\usepackage{verbatim}
+\usepackage{nicefrac}
+\usepackage{blindtext}
+\usepackage{overpic}
+\usepackage{units}
+\usepackage{nameref}
+\usepackage{xltxtra}
+\usepackage{wrapfig}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage[format=plain,
+%parindent=1em,
+parskip=0.5em,justification=justified,singlelinecheck=false]{caption}
+\captionsetup[subfigure]{justification=centering}
+
+
+\DeclareCaptionFont{blue}{\color{colorKAMODarkBlue}}
+\captionsetup{labelfont={blue,bf},textfont=blue}
+
+
+
+\usepackage[german]
+{algorithm2e}
+
+\usepackage{listings}
+\renewcommand{\KwSty}[1]{\textnormal{\textcolor{colorFHGDarkBlue}{\bfseries #1}}\unskip}
+\renewcommand\AlCapFnt{\normalfont\scshape\sffamily\bfseries}
+
+%\usepackage[paperwidth=21.3cm, paperheight=30.3cm, top=2.3cm, bottom=2.8cm, outer=2.3cm, inner=2cm]{geometry}
+
+\graphicspath{{images/}{images/inkscape/}}
+
+\usepackage{biblatex} % Benötigt biber.exe statt bibtex.exe
+\addbibresource{bibliography.bib}
+
+
+\usetikzlibrary{positioning}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.7}
+	\pgfplotsset
+	{
+		tick label style = {font=\sffamily},
+		every axis label = {font=\sffamily},
+		legend style = {font=\sffamily},
+		label style = {font=\sffamily},
+		every axis plot/.append style={line width=2pt,draw=colorFHGDarkBlue}
+	}
+
+\usepackage{todonotes}
+
+\usepackage{xurl}
+
+\PassOptionsToPackage{hyphens}{url}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+
