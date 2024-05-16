@@ -1,0 +1,44 @@
+\section{Zeitlupe}
+Man kann in Längen beschreiben, was den Wettbewerb so schwer macht.
+Ich denke aber Am besten geht das, indem wir die Zeit kurz einmal 
+anhalten und uns im Detail anschauen, was eine der grundlegendsten 
+Aufgaben alles an Schwierigkeiten beinhaltet...
+In der Fahrschule wohl Teil der ersten Stunde, auch wenn man dort erstmal nicht so schnell fährt, wie wir: Die Kurve.
+
+Wenn ein Auto um eine Kurve fährt, ist bereits jede Rolle im Team involviert.
+Doch es beginnt natürlich erstmal mit der Wahrnehmung der Kurve.
+Die Kamera erkennt erstmal einen $x times x$ Pixelmatrix.
+Bei manchen Teams mit Tiefenkamera sogar eine Punktwolke. 
+Nun steigt die Software des Teams ein und erkennt - auf irgendeine Weise -
+dass die Fahrbahn nun eine Rechtskurve macht. 
+Je nachdem, welches Streckenelement vor der Kurve kam muss diese Verarbeitung auch 
+sehr schnell geschehen. Denn wenn davor eine Gerade lag ist das Auto sehr schnell,
+wenn es gerade ein Hindernis umfahren hat, sieht es die vorrausliegende Strecek erst
+unmittelbar, bevor sie befahren wird. 
+Wenn ein Team die Bilderkennung mit Neuronalen Netzen macht, müssen sie biespielsweise
+oft darauf achten, dass das Netz schnell genug läuft.
+Generell scheitern bei der Bilderkennung viele coole Ideen daran, dass sie 
+letzten Endes doch einige Millisekunden zu langsam sind. 
+
+Nachdem das Auto erkannt hat, dass die Fahrbahn eine Biege macht, übernimmt
+in einer Form oder der anderen das Gehirn des Autos. 
+Es vereinigt diese Informationen mit allen weiteren Merkmalen in der Umwelt,
+die erkannt worden sind und mit dem Zustand, in dem sich das Auto gerade befindet. 
+Sprich: Freie Fahrt auf einer Geraden, Kreuzung, Überholvorgang, Parken, etc.
+Anschließend bringt es diese Informationen zusamemn und generiert die Trajektorie, sprich die Fahrt, die es
+auf den nächsten Zentimetern umsetzen will. 
+
+Nun setzt die Regelung des Autos ein, um die Motoren und Lenkung so 
+anzusprechen, dass das Auto der Trajektorie optimal und möglichst schnell folgt.
+Dafür muss das Auto zum Beispiel berechnen, wie schnell es fahren darf, ohne aus der Kurve zu fliegen.
+Außerdem muss es den Lenkwinkel so variieren, dass die Kurve möglichst eng und mit hoher Geschwindigkeit passieren kann.
+Allein diese beiden Dinge hängen bereits voneinander ab und müssen gemeinsam optimiert werden!
+
+Schließlich hat dann die Hardware Abteilung bereits dafür gesorgt, dass das Auto möglichst stabil und mit möglichst hoher Haftung 
+durch die Kurve fahren kann.
+
+Je nachdem, was für ein Hindernis gerade bevorsteht, werden natürlich auch verschiedene Fähigkeiten in besonderem
+Maße gefordert. Beispielsweise ist ein gerader Streckenabschnitt für die Wahrnehmung wohl keine große Herausforderung, durch die Konstruktion 
+und optimale Ansteuerung des Autos kann hier aber sehr viel rausgeholt werden!
+Umgekehrt ist es beispielsweise mit komplexen Kreuzungssituationen oder Kombinationen von Hindernissen und Streckenmarkierungen.
+Besonders hier müssen Rechts-vor-Links, die Prioritäten und Bedeutungen von allen Dinge und co. richtig im Gehirn des Autos einprogrammiert sein.
